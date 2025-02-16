@@ -1,0 +1,358 @@
+/* Grundläggande layout och stil för sidan */
+* {
+    /* outline: rgba(0, 255, 34, 0.561) solid 1px; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    /* color: #333; */
+    line-height: 1.6;
+}
+
+.main-container {
+    display: flex;
+    /* min-height: 100vh; */
+    background-color: #000;
+}
+
+/* BUTTON FOR ADDING PROJECT */
+#btn-add-project {
+    display:none;
+}
+
+/* ---------------- PROJECT ---------------- */
+/* Högra sidan */
+
+
+.div-right {
+    display: flex;
+    flex: 1.5;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 1.5rem;
+    padding-left: 20px; /* Utrymme för border-left */
+    position: relative; /* Behövs för att pseudo-elementet ska kunna positioneras korrekt */
+    border-left:5px solid;
+    border-image: linear-gradient(
+        to bottom,
+        #b8b9ca 10%,
+        #92929b 20%,
+        #c2c2c2 50%
+        
+        ) 1 2 50%;
+    background-image: linear-gradient(to bottom, #b8b9ca, #e0e0e0, #c2c2c2, #8a8a8a);
+
+}
+
+.div-right-header {
+    display: flex;
+    align-self: center;
+    font-family: 'Conthrax';
+    font-size: 8rem;
+    letter-spacing: 0.5rem;
+    font-style: italic;
+}
+
+
+
+
+.project-list {
+    display: flex;
+    flex-wrap: wrap;  /* Gör så att objekten bryts till en ny rad vid behov */
+    flex-direction: start;
+    justify-content: space-evenly;  
+    /* border: 2px dashed #080c8f; */
+    padding: 1rem;
+    gap: 1rem;  
+}
+
+.project-card {
+    /* Flexbox-inställningar för att förhindra automatisk storleksändring */
+    flex: 0 1 auto;  
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.993);
+  
+
+    /* background-color: #fff; */
+
+    color: white;
+
+    background-image:linear-gradient(
+        to top,
+        #000 0%,
+        #000 60%,
+        #000 80%,
+        #000
+        );
+        
+    }
+    
+    
+    .project-card-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* width: 25rem; */
+        /* height: 33rem; */
+        /* outline: rgb(228, 9, 159) solid 2px; */
+    padding: 0.2rem;
+    margin: 0.2rem;
+}
+
+.project-name {
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-size: 2rem;
+        font-style: normal;
+        padding: 0.5rem;
+        color: #7bff00;
+        font-family: 'Conthrax';
+}
+
+.project-image-and-link {
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+      /* outline: rgb(126, 0, 252) dotted 3px; */
+      margin-bottom: 1rem;
+    }
+    
+    .project-image {
+        width: 20rem;
+        height: 15rem;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px #7bff00;  
+    }
+
+
+.project-link {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    color: black;
+    font-size: 1.1rem;
+    letter-spacing: -0.02rem;
+    font-family: 'Conthrax';
+    background-image: linear-gradient(
+        to top right,
+        #cfcfcf 0%,
+        #a3a0d1 10%,
+        #bdb3eb 25%,
+        #e8e7f0 50%,
+        #c9c5ff 80%,
+        #d4d4ee 100%
+        );
+        box-shadow: 0px 0px 5px #7bff00;  
+    }
+
+
+.project-link:hover{
+    color:black;
+    background-color: #65ca07;
+    box-shadow: 0px 0px 10px #7bff00;  
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    /* height: 8rem; */
+    margin: 0 1.4rem;
+    padding: 0rem 0.5rem;
+    box-shadow: 0px 0px 5px #7bff00;  
+   }
+
+/* ---------------- PROFILE IMAGE & LEFT SIDE ---------------- */
+
+/* Vänstra sidan */
+.div-left {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #1a1a1a; */
+    background-color: #000;
+    padding: 2rem;
+    position: sticky;
+    top: 0; /* Fastnar vid toppen */
+    height: 100vh; /* Hela höjden */
+    overflow: hidden; /* Döljer överskjutande innehåll */
+    transition: all 1s ease-in-out;
+}
+
+.div-left.expand {
+    flex: 6; /* Tar över hela sidan */
+    background-color: #000; /* Alternativ färg */
+}
+
+
+/* Högra sidan */
+.div-right {
+    display: flex;
+    flex: 1.5;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 1.5rem;
+    padding-left: 20px;
+    position: relative;
+    transition: all 1s ease-in-out;
+}
+
+/* När vänstra sidan expanderar, döljs högra sidan genom att flex sätts till 0 */
+.div-left.expand ~ .div-right {
+    flex: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.div-intro-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    font-family: Conthrax;
+}
+
+.intro-text-role,
+.intro-text-name
+ {
+    color: #7bff00;
+    font-size: 2.5rem;
+
+}
+
+#intro-hire-me-btn {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 2rem;
+    background-color: #09072eb4;
+    color: #7bff00;
+    box-shadow: 0px 0px 10px #7bff00;
+}
+#intro-hire-me-btn:hover {
+    color:black;
+    background-color: #65ca07;
+    
+    box-shadow: 0px 0px 10px rgba(144, 233, 0, 0.993);  
+}
+
+
+/* PROFILE IMAGE */
+.div-profile-img {
+    width: 24em;
+    height: 27em;
+    border-radius: 50%;
+    border: #7bff008c groove 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0rem 0.2%;
+}
+
+
+
+/*  CONTACT  */
+
+.div-left.expand #intro-hire-me-btn {
+box-shadow: 0px 0px 0px #000000;
+border: 2px solid #596152;   
+}
+
+.div-left.expand .contact-details {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.contact-details {
+    display: none;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+
+.contact-details-title {
+    display: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.div-left.expand .contact-details-title {
+    display: block;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.social-links-item {
+    /* border: #b501fc 4px dotted; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.social-links-item-bg{
+    /* border: #16ffec 4px dotted; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.3em;
+    border-radius: 50%;
+    color: rgb(0, 0, 0);
+    background-color: #7bff00;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+    box-shadow: 0px 0px 10px #7bff00;
+
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 4rem;
+  }
+
+  .social-links a{
+    font-size: 2rem;
+    /* font-size: 1.5rem; */
+  }
+
+
+
+
+
+
+
+
+
